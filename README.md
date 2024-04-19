@@ -1,1 +1,1 @@
-# CPM-interior-boundary-conditions
+# cpm-interior-boundary-conditions
