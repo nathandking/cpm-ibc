@@ -1,0 +1,9 @@
+[submodule "deps/polyscope"]
+	path = deps/polyscope
+	url = https://github.com/nmwsharp/polyscope.git
+[submodule "deps/LBFGSpp"]
+	path = deps/LBFGSpp
+	url = https://github.com/yixuan/LBFGSpp.git
+[submodule "deps/fcpw"]
+	path = deps/fcpw
+	url = https://github.com/rohan-sawhney/fcpw.git
