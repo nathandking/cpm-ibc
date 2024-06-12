@@ -1,6 +1,6 @@
 ![‎cpm-ibc-teaser](https://github.com/nathandking/cpm-ibc/assets/6421293/7d1cbbe7-effc-44f9-b1d9-5e0d80504436)
 
-C++ implementation of the closest point method for surface PDEs with interior (and exterior) boundary conditions. This code accompanies the paper "A Closest Point Method for PDEs on Manifolds with Interior Boundary Conditions for Geometry Processing".
+C++ implementation of the closest point method for PDEs on manifolds with interior (and exterior) boundary conditions. This code accompanies the paper "A Closest Point Method for PDEs on Manifolds with Interior Boundary Conditions for Geometry Processing".
 
 ---
 
