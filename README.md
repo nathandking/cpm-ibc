@@ -7,12 +7,13 @@ C++ implementation of the closest point method for surface PDEs with interior (a
 There are some dependencies: Eigen, polyscope, LBFGS++, fcpw. You must download Eigen and cmake will use find_package() to include it. Polyscope, LBFGS++, and fcpw will be downloaded when you clone the repository using the following command:<br />
 git clone --recurse-submodules https://github.com/nathandking/cpm-interior-boundary-conditions.git
 
-ccmake is used to build the project. You should simply need to run the following commands: <br />
-mkdir build <br />
-cd build/ <br />
-ccmake .. (choose the desired options, and generate) <br />
-make <br />
-
+ccmake is used to build the project. You should simply need to run the following commands: 
+```
+mkdir build 
+cd build/ 
+ccmake .. #choose the desired options, configure, and generate
+make 
+```
 ---
 
 ## Running Examples
