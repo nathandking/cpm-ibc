@@ -44,7 +44,7 @@ All other options are for included libraries.
 ---
 Authors: [Nathan King](https://nathandking.github.io/) and [Haozhe Su](https://soldierdown.github.io/) (custom solver and sparse-grid support).
 
-If cpm-interior-boundary-conditions contributes to an academic publication, cite it as:
+If cpm-ibc contributes to an academic publication, cite it as:
 ```bib
 @misc{cpm-ibc,
   title = {C++ Code for the Closest Point Method with Interior Boundary Conditions},
