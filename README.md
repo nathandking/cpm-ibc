@@ -18,16 +18,34 @@ make
 
 ## Running Examples
 
-Once you build the examples given in the examples/ and convergence_studies/ directories will be built in build/bin/. To run an example simply run the name of the example as a command. For example: <br />
-cd build/bin/ <br />
-DiffusionCurvesCodimZero <br />
+Once you build the examples given in the examples/ and convergence_studies/ directories they reside in build/bin/. To run an example simply run the name of the example as a command. For example:
+```
+cd bin/
+DiffusionCurvesCodimZero
+```
+---
 
 ## Options
 
-```BUILD_CUSTOM_SOLVER: If ON, use our partially matrix-free linear system solver. If OFF, option of BUILD_EIGEN_SPARSELU will appear.
+BUILD_CUSTOM_SOLVER: If ON, use our partially matrix-free linear system solver. If OFF, option of BUILD_EIGEN_SPARSELU will appear.
+
 BUILD_EIGEN_SPARSELU: If ON, use Eigen's direct solver, SparseLU. If OFF, use Eigen's BiCGSTAB iterative solver.
+
 BUILD_ENABLE_SPARSE_GRID_SUPPORT: (Note: you must also set USE_SPARSE_GRID to ON). If ON, use our memory-efficient sparse-grid construction of the computational tube. If OFF, use our less memory-efficient, but faster construction of the computational tube.
+
 USE_POLYSCOPE: If ON, visualization will occur using polyscope. If OFF, no visualization will occur (useful for running convergence_studies or on remote servers).
 
 All other options are for included libraries.
+
+---
+Authors: [Nathan King](https://nathandking.github.io/) and [Haozhe Su](https://soldierdown.github.io/) (custom solver and sparse-grid support).
+
+If cpm-interior-boundary-conditions contributes to an academic publication, cite it as:
+```bib
+@misc{cpm-ibc,
+  title = {Closest Point Method for Interior Boundary Conditions C++ Code},
+  author = {Nathan King and Haozhe Su},
+  note = {https://github.com/nathandking/cpm-interior-boundary-conditions},
+  year = {2024}
+}
 ```
