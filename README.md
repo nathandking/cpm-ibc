@@ -47,6 +47,12 @@ USE_POLYSCOPE: If ON, visualization will occur using [Polyscope](https://polysco
 
 All other options are for included libraries.
 
+## FAQs
+
+Q. How do I install the dependencies if I've already cloned the repository?
+
+A. Run the command `git submodule update --init --recursive`
+
 ---
 Authors: [Nathan King](https://nathandking.github.io/) and [Haozhe Su](https://soldierdown.github.io/) (custom solver and sparse-grid support).
 
