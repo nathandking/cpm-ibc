@@ -29,10 +29,9 @@ make
 
 ## Running Examples
 
-Once you build, the examples in the examples/ and convergence_studies/ directories will reside in build/bin/. To run an example simply run the name as a command. For example:
+Once you build, the examples in the examples/ and convergence_studies/ directories will reside in build/bin/. To run an example simply run the name as a command from within the build folder. For example:
 ```
-cd bin/
-DiffusionCurvesCodimZero
+./bin/DiffusionCurvesCodimZero
 ```
 ---
 
