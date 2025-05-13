@@ -28,7 +28,7 @@ make
 ---
 
 ## Assets
-The .obj files in the assets/ directory require Github's Large File Storage. Follow instructions here: https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage. 
+The OBJ files in the assets/ directory require Github's Large File Storage. Follow instructions here: https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage. 
 
 ## Running Examples
 
