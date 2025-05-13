@@ -6,26 +6,32 @@ C++ implementation of the closest point method for PDEs on manifolds with interi
 
 ## Building
 
-There are some dependencies: [Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page), [Polyscope](https://polyscope.run/), [LBFGS++](https://lbfgspp.statr.me/), [fcpw](https://github.com/rohan-sawhney/fcpw). You must download Eigen and cmake will use find_package() to include it. Polyscope, LBFGS++, and fcpw will be downloaded when you clone the repository using the following command:
+The following dependencies, [Polyscope](https://polyscope.run/), [LBFGS++](https://lbfgspp.statr.me/) and [fcpw](https://github.com/rohan-sawhney/fcpw) will be downloaded when you clone the repository using the following command:
+
 ```
 git clone --recurse-submodules https://github.com/nathandking/cpm-ibc.git
 ```
 
-ccmake is used to build the project. You should simply need to run the following commands: 
+The remaining dependencies ([Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page), [Boost](https://www.boost.org/)) are recommended to be downloaded from [Homebrew](https://brew.sh/):
+```
+brew install eigen
+brew install boost
+```
+
+Make a new directory for builds for better code separation. ccmake is used to build the project. You should simply need to run the following commands:
 ```
 mkdir build 
-cd build/ 
-ccmake .. #choose the desired options (see below), configure, and generate
+cd build/
+cmake .. #choose the desired options (see below), configure, and generate
 make 
 ```
 ---
 
 ## Running Examples
 
-Once you build, the examples in the examples/ and convergence_studies/ directories will reside in build/bin/. To run an example simply run the name as a command. For example:
+Once you build, the examples in the examples/ and convergence_studies/ directories will reside in build/bin/. To run an example simply run the name as a command from within the build folder. For example:
 ```
-cd bin/
-DiffusionCurvesCodimZero
+./bin/DiffusionCurvesCodimZero
 ```
 ---
 
@@ -40,6 +46,12 @@ BUILD_ENABLE_SPARSE_GRID_SUPPORT: (Note: you must also set USE_SPARSE_GRID to ON
 USE_POLYSCOPE: If ON, visualization will occur using [Polyscope](https://polyscope.run/). If OFF, no visualization will occur (useful for running convergence_studies/ or on remote servers).
 
 All other options are for included libraries.
+
+## FAQs
+
+Q. How do I install the dependencies if I've already cloned the repository?
+
+A. Run the command `git submodule update --init --recursive`
 
 ---
 Authors: [Nathan King](https://nathandking.github.io/) and [Haozhe Su](https://soldierdown.github.io/) (custom solver and sparse-grid support).
