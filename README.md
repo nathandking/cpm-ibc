@@ -27,6 +27,9 @@ make
 ```
 ---
 
+## Assets
+The .obj files in the assets/ directory require Github's Large File Storage. Follow instructions here: https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage. 
+
 ## Running Examples
 
 Once you build, the examples in the examples/ and convergence_studies/ directories will reside in build/bin/. To run an example simply run the name as a command from within the build folder. For example:
