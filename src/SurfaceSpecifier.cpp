@@ -381,4 +381,41 @@ void SurfaceSpecifier::SetIsOpen(string surf)
 }
 
 
+SurfaceTypeEnum SurfaceSpecifier::StringToSurfaceTypeEnum(const string& surf)
+{
+    static const std::unordered_map<string, SurfaceTypeEnum> typeMap = {
+        {"Triangulation", SurfaceTypeEnum::Triangulation},
+        {"Polyline", SurfaceTypeEnum::Polyline},
+        {"NN Point Cloud", SurfaceTypeEnum::PointCloud},
+        {"Polyline2D", SurfaceTypeEnum::Polyline2D},
+        {"Circle", SurfaceTypeEnum::Circle},
+        {"Circle3D", SurfaceTypeEnum::Circle3D},
+        {"Arc", SurfaceTypeEnum::Arc},
+        {"Dumbbell", SurfaceTypeEnum::Dumbbell},
+        {"Sphere", SurfaceTypeEnum::Sphere},
+        {"Hemisphere", SurfaceTypeEnum::Hemisphere},
+        {"Ball", SurfaceTypeEnum::Ball},
+        {"Torus", SurfaceTypeEnum::Torus},
+        {"Point", SurfaceTypeEnum::Point},
+        {"Line", SurfaceTypeEnum::Line},
+        {"Plane", SurfaceTypeEnum::Plane},
+        {"Square", SurfaceTypeEnum::Square},
+        {"L", SurfaceTypeEnum::L},
+        {"Torus-Line-Sphere", SurfaceTypeEnum::TorusLineSphere},
+        {"Sphere-Line", SurfaceTypeEnum::SphereLine},
+        {"Torus Knot", SurfaceTypeEnum::TorusKnot},
+        {"Planar Curve", SurfaceTypeEnum::PlanarCurve},
+        {"Planar Curve 2", SurfaceTypeEnum::PlanarCurve2},
+        {"Surface Of Revolution Curve", SurfaceTypeEnum::SurfaceOfRevolutionCurve},
+        {"Surface Of Revolution", SurfaceTypeEnum::SurfaceOfRevolution},
+        {"Ellipsoid", SurfaceTypeEnum::Ellipsoid},
+        {"Dziuk", SurfaceTypeEnum::Dziuk},
+        {"DecoTetrahedron", SurfaceTypeEnum::DecoTetrahedron}
+    };
+    
+    auto it = typeMap.find(surf);
+    return (it != typeMap.end()) ? it->second : SurfaceTypeEnum::Invalid;
+}
+
+
 } // namespace cpm

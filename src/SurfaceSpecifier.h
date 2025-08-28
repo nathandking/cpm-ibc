@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <unordered_map>
 #include "math.h"
 
 #include "Scalar.h"
@@ -14,6 +15,36 @@ using namespace std;
 
 namespace cpm
 {
+    enum class SurfaceTypeEnum {
+        Triangulation,
+        Polyline,
+        PointCloud,
+        Polyline2D,
+        Circle,
+        Circle3D,
+        Arc,
+        Dumbbell,
+        Sphere,
+        Hemisphere,
+        Ball,
+        Torus,
+        Point,
+        Line,
+        Plane,
+        Square,
+        L,
+        TorusLineSphere,
+        SphereLine,
+        TorusKnot,
+        PlanarCurve,
+        PlanarCurve2,
+        SurfaceOfRevolutionCurve,
+        SurfaceOfRevolution,
+        Ellipsoid,
+        Dziuk,
+        DecoTetrahedron,
+        Invalid
+    };
 
     class SurfaceSpecifier
     {
@@ -67,6 +98,11 @@ namespace cpm
             return m_surface; 
         };
 
+        SurfaceTypeEnum GetSurfaceTypeEnum() const
+        {
+            return StringToSurfaceTypeEnum(m_surface);
+        };
+
         size_t Dim() const {return m_dim;};
 
         inline const SimplePolygonMesh& Mesh() const
@@ -104,6 +140,8 @@ namespace cpm
         void SetSurface();
 
         void SetIsOpen(string surf);
+        
+        static SurfaceTypeEnum StringToSurfaceTypeEnum(const string& surf);
     };
 
 } // namespace cpm
