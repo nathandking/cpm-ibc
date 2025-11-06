@@ -63,6 +63,9 @@ void Surface::ClosestPoint(const vector<Scalar> &x, vector<Scalar> &cpx, Scalar 
     switch(GetSurfaceTypeEnum())
     {
         case SurfaceTypeEnum::Triangulation:
+            cpTri(x, cpx, dist, bdy);
+            break;
+
         case SurfaceTypeEnum::Polyline:
             cpTri(x, cpx, dist, bdy);
             break;
