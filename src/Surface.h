@@ -86,6 +86,11 @@ namespace cpm
             return m_surface_specs.SurfaceType(); 
         };
 
+        SurfaceTypeEnum GetSurfaceTypeEnum() const
+        {
+            return m_surface_specs.GetSurfaceTypeEnum();
+        };
+
         const SurfaceSpecifier& SurfaceSpecs() const
         { 
             return m_surface_specs; 

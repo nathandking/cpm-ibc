@@ -60,132 +60,137 @@ void Surface::ClosestPoint(const vector<Scalar> &x, vector<Scalar> &cpx)
 // Closest point computation
 void Surface::ClosestPoint(const vector<Scalar> &x, vector<Scalar> &cpx, Scalar &dist, size_t &bdy)
 {
-    if(SurfaceType().compare("Triangulation") == 0 || SurfaceType().compare("Polyline") == 0)
+    switch(GetSurfaceTypeEnum())
     {
-        cpTri(x, cpx, dist, bdy);
-    }
-    else if(SurfaceType().compare("NN Point Cloud") == 0)
-    {
-        bdy = 0;
-        cpNNPointCloud(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Polyline2D") == 0)
-    {
-        cpPolyline2D(x, cpx, dist, bdy);
-    }
-    else if(SurfaceType().compare("Circle") == 0)
-    {
-        bdy = 0;
-        cpCircle(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Circle3D") == 0)
-    {
-        bdy = 0;
-        cpCircle3D(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Arc") == 0)
-    {
-        cpArc(x, cpx, dist, bdy);
-    }
-    else if(SurfaceType().compare("Dumbbell") == 0)
-    {
-        bdy = 0;
-        cpDumbbell(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Sphere") == 0)
-    {
-        bdy = 0;
-        cpSphere(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Hemisphere") == 0)
-    {
-        cpHemisphere(x, cpx, dist, bdy);
-    }
-    else if(SurfaceType().compare("Ball") == 0)
-    {
-        cpBall(x, cpx, dist, bdy);
-    }
-    else if(SurfaceType().compare("Torus") == 0)
-    {
-        bdy = 0;
-        cpTorus(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Point") == 0)
-    {
-        bdy = 0;
-        cpPoint(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Line") == 0)
-    {
-        cpLine(x, cpx, dist, bdy);
-    }
-    else if(SurfaceType().compare("Plane") == 0)
-    {
-        cpPlane(x, cpx, dist, bdy);
-    }
-    else if(SurfaceType().compare("Square") == 0)
-    {
-        bdy = 0;
-        cpSquare(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("L") == 0)
-    {
-        bdy = 0;
-        cpL(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Torus-Line-Sphere") == 0)
-    {
-        bdy = 0;
-        cpTorusLineSphere(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Sphere-Line") == 0)
-    {
-        bdy = 0;
-        cpSphereLine(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Torus Knot") == 0)
-    {
-        bdy = 0;
-        cpTorusKnot(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Planar Curve") == 0)
-    {
-        bdy = 0;
-        cpPlanarCurve(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Planar Curve 2") == 0)
-    {
-        bdy = 0;
-        cpPlanarCurve2(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Surface Of Revolution Curve") == 0)
-    {
-        bdy = 0;
-        cpSurfaceOfRevolutionCurve(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Surface Of Revolution") == 0)
-    {
-        bdy = 0;
-        cpSurfaceOfRevolution(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Ellipsoid") == 0)
-    {
-        bdy = 0;
-        cpEllipsoid(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("Dziuk") == 0)
-    {
-        bdy = 0;
-        cpDziuk(x, cpx, dist);
-    }
-    else if(SurfaceType().compare("DecoTetrahedron") == 0)
-    {
-        bdy = 0;
-        cpDecoTetrahedron(x, cpx, dist);
-    }
-    else
-    {
-        throw std::runtime_error("Invalid surface called '" + SurfaceType() + "' in Surface::ClosestPoint");
+        case SurfaceTypeEnum::Triangulation:
+            cpTri(x, cpx, dist, bdy);
+            break;
+
+        case SurfaceTypeEnum::Polyline:
+            cpTri(x, cpx, dist, bdy);
+            break;
+            
+        case SurfaceTypeEnum::PointCloud:
+            bdy = 0;
+            cpNNPointCloud(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::Polyline2D:
+            cpPolyline2D(x, cpx, dist, bdy);
+            break;
+            
+        case SurfaceTypeEnum::Circle:
+            bdy = 0;
+            cpCircle(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::Circle3D:
+            bdy = 0;
+            cpCircle3D(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::Arc:
+            cpArc(x, cpx, dist, bdy);
+            break;
+            
+        case SurfaceTypeEnum::Dumbbell:
+            bdy = 0;
+            cpDumbbell(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::Sphere:
+            bdy = 0;
+            cpSphere(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::Hemisphere:
+            cpHemisphere(x, cpx, dist, bdy);
+            break;
+            
+        case SurfaceTypeEnum::Ball:
+            cpBall(x, cpx, dist, bdy);
+            break;
+            
+        case SurfaceTypeEnum::Torus:
+            bdy = 0;
+            cpTorus(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::Point:
+            bdy = 0;
+            cpPoint(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::Line:
+            cpLine(x, cpx, dist, bdy);
+            break;
+            
+        case SurfaceTypeEnum::Plane:
+            cpPlane(x, cpx, dist, bdy);
+            break;
+            
+        case SurfaceTypeEnum::Square:
+            bdy = 0;
+            cpSquare(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::L:
+            bdy = 0;
+            cpL(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::TorusLineSphere:
+            bdy = 0;
+            cpTorusLineSphere(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::SphereLine:
+            bdy = 0;
+            cpSphereLine(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::TorusKnot:
+            bdy = 0;
+            cpTorusKnot(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::PlanarCurve:
+            bdy = 0;
+            cpPlanarCurve(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::PlanarCurve2:
+            bdy = 0;
+            cpPlanarCurve2(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::SurfaceOfRevolutionCurve:
+            bdy = 0;
+            cpSurfaceOfRevolutionCurve(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::SurfaceOfRevolution:
+            bdy = 0;
+            cpSurfaceOfRevolution(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::Ellipsoid:
+            bdy = 0;
+            cpEllipsoid(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::Dziuk:
+            bdy = 0;
+            cpDziuk(x, cpx, dist);
+            break;
+            
+        case SurfaceTypeEnum::DecoTetrahedron:
+            bdy = 0;
+            cpDecoTetrahedron(x, cpx, dist);
+            break;
+            
+        default:
+            throw std::runtime_error("Invalid surface called '" + SurfaceType() + "' in Surface::ClosestPoint");
     }
 }
 
